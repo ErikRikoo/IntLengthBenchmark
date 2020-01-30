@@ -22,18 +22,37 @@ class Main {
         trace("Looping with a float");
         trace("by 01010111");
         trace("Time: " + bench(
-            () -> testOnEachInteger(get_len)
+            () -> testOnEachInteger(Method01010111.method1)
         , count));
+        trace("---------------------------------------");
+
+        trace("LUT(Array) with power of 2");
+        trace("by Ratrogue");
+        trace("Time: " + bench(
+            () -> testOnEachInteger(MethodRatrogue.method1)
+        , count));
+        trace("---------------------------------------");
+
+        trace("LUT(Map) with power of 2");
+        trace("by Ratrogue");
+        trace("Time: " + bench(
+            () -> testOnEachInteger(MethodRatrogue.method2)
+        , count));
+        trace("---------------------------------------");
+
+        trace("Recursive method");
+        trace("by Semni");
+        trace("Time: " + bench(
+            () -> testOnEachInteger((i:Int) -> return MethodSemni.method1(i))
+        , count));
+        trace("---------------------------------------");
+
+        trace("Log with division");
+        trace("Time: " + bench(
+            () -> testOnEachInteger(MethodWithLog.method1)
+        , count));
+        trace("---------------------------------------");
     }
 
-    // 01010111 version 1
-    static function get_len(i:Int):Int {
-        var out = 0;
-        var f:Float = i;
-        while(f > 1) {
-            f/=2;
-            out++;
-        }
-        return out;
-    }
+
 }
