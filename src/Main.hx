@@ -17,7 +17,7 @@ class Main {
     }
 
     public static function main() {
-        var count = 1<<16;
+        var count = 1<<24;
 
         trace("Looping with a float");
         trace("by 01010111");
@@ -50,6 +50,12 @@ class Main {
         trace("Log with division");
         trace("Time: " + bench(
             () -> testOnEachInteger(MethodWithLog.method1)
+        , count));
+        trace("---------------------------------------");
+
+        trace("Log with multiplication");
+        trace("Time: " + bench(
+            () -> testOnEachInteger(MethodWithLog.method2)
         , count));
         trace("---------------------------------------");
     }
