@@ -58,6 +58,13 @@ class Main {
             () -> testOnEachInteger(MethodWithLog.method2)
         , count));
         trace("---------------------------------------");
+
+        trace("256 Lut and splitting int into 4 parts");
+        trace("by Rikoo");
+        trace("Time: " + bench(
+            () -> testOnEachInteger(MethodRikoo.method1)
+        , count));
+        trace("---------------------------------------");
     }
 
 
