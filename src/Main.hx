@@ -65,6 +65,13 @@ class Main {
             () -> testOnEachInteger(MethodRikoo.method1)
         , count));
         trace("---------------------------------------");
+
+        trace("Unstacked Recursived method with macro");
+        trace("by Semni");
+        trace("Time: " + bench(
+            () -> testOnEachInteger(MethodSemni.method2)
+        , count));
+        trace("---------------------------------------");
     }
 
 
