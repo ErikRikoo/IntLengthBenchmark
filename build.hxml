@@ -1,3 +1,9 @@
 -cp src
 -main Main
+--each
+
 -hl out/main.hl
+--next
+
+-js out/main.js
+

@@ -13,12 +13,13 @@ class MethodSemni {
     public static function method2(i:Int):Int {
         return bitlengthmacro(i, 15, 16);
     }
+    
 
     public static macro function bitlengthmacro(i:haxe.macro.Expr, n:Int, delta:Int) {
         if (delta == 1) return macro $v{n + 1};
         else {
             delta = delta >> 1;
-            return macro {
+            var e = macro {
                 if ( ($i >> $v{n}) < 1 )
                     bitlengthmacro($i, $v{n - delta}, $v{delta});
                 else if ( ($i >> $v{n}) > 1 )
@@ -26,6 +27,9 @@ class MethodSemni {
                 else
                     $v{n + 1};
             }
+
+            trace(new haxe.macro.Printer().printExpr(e));
+            return e;
         }
     }
 }

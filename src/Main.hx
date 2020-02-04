@@ -10,14 +10,15 @@ class Main {
         return haxe.Timer.stamp() - start;
     }
 
-    private static function testOnEachInteger(f:Int->Void) {
+    private static function testOnEachInteger(f:Int->Int) {
+        var sum = 0;
         for(i in 0...(1<<32)) {
-            f(i);
+            sum += f(i);
         }
     }
 
     public static function main() {
-        var count = 1<<24;
+        var count = 1<<28;
 
         trace("Looping with a float");
         trace("by 01010111");
@@ -40,13 +41,6 @@ class Main {
         , count));
         trace("---------------------------------------");
 
-        trace("Recursive method");
-        trace("by Semni");
-        trace("Time: " + bench(
-            () -> testOnEachInteger((i:Int) -> return MethodSemni.method1(i))
-        , count));
-        trace("---------------------------------------");
-
         trace("Log with division");
         trace("Time: " + bench(
             () -> testOnEachInteger(MethodWithLog.method1)
@@ -63,6 +57,13 @@ class Main {
         trace("by Rikoo");
         trace("Time: " + bench(
             () -> testOnEachInteger(MethodRikoo.method1)
+        , count));
+        trace("---------------------------------------");
+
+        trace("Recursive method");
+        trace("by Semni");
+        trace("Time: " + bench(
+            () -> testOnEachInteger((i:Int) -> return MethodSemni.method1(i))
         , count));
         trace("---------------------------------------");
 
