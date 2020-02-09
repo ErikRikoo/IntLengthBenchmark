@@ -1,5 +1,6 @@
 -cp src
 -main Main
+-dce no
 --each
 
 -hl out/main.hl

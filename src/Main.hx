@@ -15,6 +15,7 @@ class Main {
         for(i in 0...(1<<32)) {
             sum += f(i);
         }
+        return sum;
     }
 
     public static function main() {
