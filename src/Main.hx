@@ -12,14 +12,14 @@ class Main {
 
     private static function testOnEachInteger(f:Int->Int) {
         var sum = 0;
-        for(i in 0...(1<<32)) {
+        for(i in 1...(1<<24)) {
             sum += f(i);
         }
         return sum;
     }
 
     public static function main() {
-        var count = 1<<28;
+        var count = 1<<0;
 
         trace("Looping with a float");
         trace("by 01010111");

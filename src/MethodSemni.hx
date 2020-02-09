@@ -28,7 +28,7 @@ class MethodSemni {
                     $v{n + 1};
             }
 
-            trace(new haxe.macro.Printer().printExpr(e));
+            // trace(new haxe.macro.Printer().printExpr(e));
             return e;
         }
     }
